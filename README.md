@@ -3,6 +3,13 @@
 Restore S3 objects from Glacier Deep Archive, track the restore, and copy the
 restored objects to another bucket.
 
+> [!NOTE]
+> **AI-assisted code.** Most of the code, tests and documentation here were written by Claude
+> (Anthropic's AI model) in Claude Code, working from the author's requirements and decisions.
+> The tests run against mocked S3, but AI-written code can still contain mistakes that tests miss.
+> Restores and copies cost money and act on real data, so start with `--dry-run` on a small prefix,
+> check the results, and use thaw at your own risk. It is provided as is, without warranty.
+
 ![browse screen (demo data)](docs/themes/eightbit_browse.svg)
 
 ## Setup
@@ -186,3 +193,11 @@ uv run pytest
 ```
 
 Uses moto (mocked S3), so no real restores are ever requested.
+
+## Licence
+
+Copyright 2026 Tim Hackwood. Licensed under the [Apache License 2.0](LICENSE).
+
+You can use, change and share thaw, including commercially, as long as you include the licence,
+keep the copyright and [NOTICE](NOTICE) file, and mark any files you changed. It comes with no
+warranty, and the licence limits the author's liability for any loss from using it.

@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Restore S3 objects from Glacier Deep Archive, track progress, and copy them to another bucket."
 readme = "README.md"
 requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Tim Hackwood" }]
 dependencies = [
     "boto3>=1.34,<2",
     "textual>=8.2,<9",
