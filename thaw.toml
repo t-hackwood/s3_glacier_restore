@@ -1,0 +1,41 @@
+# Defaults for thaw. Command-line flags override these.
+
+[aws]
+profile = ""                  # empty = default boto3 credential chain
+region = "ap-southeast-2"
+
+[restore]
+tier = "Bulk"                 # Bulk (≤48h, cheapest) or Standard (≤12h)
+days = 7                      # how long the temporary restored copy stays readable
+workers = 16                  # concurrent API calls
+warn_objects = 50000          # warn above this many objects (consider S3 Batch Operations)
+
+[copy]
+storage_class = "STANDARD"
+
+[watch]
+interval_minutes = 60
+
+# Approximate prices (USD) used for the pre-restore estimate only.
+# Check https://aws.amazon.com/s3/pricing/ for ap-southeast-2 and adjust.
+[pricing.DEEP_ARCHIVE.Bulk]
+per_gb = 0.0025
+per_1000_requests = 0.025
+
+[pricing.DEEP_ARCHIVE.Standard]
+per_gb = 0.02
+per_1000_requests = 0.10
+
+[pricing.GLACIER.Bulk]
+per_gb = 0.0
+per_1000_requests = 0.0
+
+[pricing.GLACIER.Standard]
+per_gb = 0.01
+per_1000_requests = 0.05
+
+[pricing.restored_copy]
+per_gb_month = 0.025          # restored copies are billed as Standard storage until they expire
+
+[ui]
+theme = "eightbit"            # amber | phosphor | dos | synthwave | eightbit  (ctrl+t cycles in the app)

@@ -1,0 +1,32 @@
+[project]
+name = "thaw"
+version = "0.1.0"
+description = "Restore S3 objects from Glacier Deep Archive, track progress, and copy them to another bucket."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "boto3>=1.34,<2",
+    "textual>=8.2,<9",
+]
+
+[project.scripts]
+thaw = "thaw.cli:main"
+
+[dependency-groups]
+dev = [
+    "moto[s3]>=5.0,<6",
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/thaw"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

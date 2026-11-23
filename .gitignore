@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+jobs/*
+!jobs/.gitkeep
+.thaw_state.json
